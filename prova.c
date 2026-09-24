@@ -47,33 +47,28 @@ float cardapio(char nome[30]){
         printf("4-salgado R$ 7.00\n"); 
         printf("5-cafe R$ 4.00\n"); 
         printf("digite a opcao desejada: "); 
-        scanf("%d", &opcao); 
+        scanf(" %d", &opcao); 
 
         switch (opcao) { 
             case 1: 
                 printf("voce escolheu o sanduiche\n"); 
                 valor = 12;
-                id = 1;
                 break; 
             case 2: 
                 printf("voce escolheu o refrigerante\n"); 
                 valor = 6;
-                id = 2;
                 break; 
             case 3: 
                 printf("voce escolheu o suco\n"); 
                 valor = 8;
-                id = 3;
                 break; 
             case 4: 
                 printf("voce escolheu o salgado\n"); 
                 valor = 7;
-                id = 4;
                 break; 
             case 5: 
                 printf("voce escolheu o cafe\n"); 
                 valor = 4;
-                id = 5;
                 break; 
             default: 
                 printf("opcao invalida\n"); 
@@ -83,10 +78,10 @@ float cardapio(char nome[30]){
 
         if(valor > 0){
             printf("digite a quantidade: "); 
-            scanf("%d", &quantidade); 
+            scanf(" %d", &quantidade); 
             while (quantidade <= 0) { 
                 printf("digite uma quantidade maior que 0: "); 
-                scanf("%d", &quantidade); 
+                scanf(" %d", &quantidade); 
             } 
             total = total + (valor * quantidade);
             itens_pedido = itens_pedido + quantidade;
@@ -105,23 +100,22 @@ float cardapio(char nome[30]){
         if(total >= 100){ 
             printf("voce recebeu 15 porcento de desconto!\n"); 
             valor_desconto = total * 0.15;
-            
             printf("o valor final  e: %.2f\n", total - valor_desconto); 
         }else if(total >= 60 && total < 100){ 
             printf("voce recebeu 10 porcento de desconto\n"); 
             valor_desconto = total * 0.10;
-            desconto_aplicado =10;
             printf("o valor final  e: %.2f\n", total - valor_desconto); 
         }else if(total >= 30 && total < 60){ 
             printf("voce recebeu 5 porcento de desconto\n"); 
             valor_desconto = total * 0.05; 
             printf("o valor final  e: %.2f\n", total - valor_desconto); 
         }else{ 
+            valor_desconto =0;
             printf("voce nao recebeu desconto. O valor final e: %.2f\n", total); 
         } 
 
         printf("Deseja adicionar mais intens (1-sim/0-nao): ");
-        scanf("%d", &continuar);
+        scanf(" %d", &continuar);
         
 
     }while(continuar == 1);
@@ -160,7 +154,7 @@ float cardapio(char nome[30]){
         printf("3- multiplicar\n");
         printf("4- divisao\n");
         printf("digite a opcao desejada: ");
-        scanf("%d", &operador);
+        scanf(" %d", &operador);
         switch(operador){
             case 1:{
                 printf("digite o primeiro numero: ");
@@ -231,14 +225,14 @@ float cardapio(char nome[30]){
             printf("o valor do desconto e: %.2f\n", valor_desconto);
             printf("o valor final e: %.2f\n", total - valor_desconto); 
         }else{
-            valor_desconto = total;
+            valor_desconto = 0;
             printf("o valor do desconto e: %.2f\n", valor_desconto);
             printf("voce nao recebeu desconto. O valor final e: %.2f\n", total); 
         }
         
     }
     
-    float menurelario(){
+    void menurelario(){
         printf("=========== Relatorio ===========\n");
         printf("pedidos realizados: %d\n", pedidosrealizados);
         printf("itens vendidos: %d\n", itensvendidos);
@@ -253,7 +247,7 @@ int main(){
     
     do{
         menuinicial();
-        scanf("%d", &opcao);
+        scanf(" %d", &opcao);
         
         switch(opcao){
             case 1:
